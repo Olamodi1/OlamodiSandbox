@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How HTTP Works | The Evolution of HTTP</title>
+  <!-- One shared stylesheet for the whole site -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header and main menu: identical on every page -->
+  <header id="site-header">
+    <p class="site-title">The Evolution of HTTP</p>
+    <nav class="main-nav" aria-label="Main menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="early-http.html">Early HTTP</a></li>
+        <li><a href="modern-http.html">HTTP/2 &amp; HTTP/3</a></li>
+        <li><a href="how-http-works.html" aria-current="page">How HTTP Works</a></li>
+        <li><a href="key-concepts.html">Key Concepts</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>How HTTP Works</h1>
+    <p class="lead">HTTP is an application-layer protocol: a set of rules for how clients and servers talk. It is stateless, so each request is independent unless cookies, sessions or tokens carry state.</p>
+
+    <h2>The Request-Response Cycle</h2>
+    <p>This is what happens when you click a link:</p>
+    <ol>
+      <li><strong>DNS lookup:</strong> the browser translates a name like <code>www.example.com</code> into an IP address.</li>
+      <li><strong>TCP connection:</strong> the browser connects to port 80 (HTTP) or 443 (HTTPS) with a three-way handshake. HTTP/3 uses QUIC instead.</li>
+      <li><strong>TLS handshake (HTTPS):</strong> both sides agree on encryption keys.</li>
+      <li><strong>HTTP request:</strong> the browser asks for a resource.</li>
+      <li><strong>Server processing:</strong> the server finds the file or runs application code.</li>
+      <li><strong>HTTP response:</strong> the server returns a status code and the content.</li>
+      <li><strong>Rendering:</strong> the browser reads the HTML and requests the CSS, JavaScript and images it finds, repeating the cycle.</li>
+    </ol>
+
+    <h3>Example</h3>
+<pre><code>GET /index.html HTTP/1.1
+Host: example.com
+Accept: text/html
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 5823
+
+&lt;!DOCTYPE html&gt; ...</code></pre>
+
+    <table>
+      <caption>Table 3. Common status codes</caption>
+      <thead><tr><th scope="col">Code</th><th scope="col">Meaning</th></tr></thead>
+      <tbody>
+        <tr><td>200</td><td>OK: the request succeeded</td></tr>
+        <tr><td>301</td><td>Moved permanently: look at a new address</td></tr>
+        <tr><td>404</td><td>Not found: the resource does not exist</td></tr>
+        <tr><td>500</td><td>Server error: something failed on the server</td></tr>
+      </tbody>
+    </table>
+
+    <h2>HTTPS and Security</h2>
+    <p>HTTPS is HTTP sent over TLS (Transport Layer Security). It is not a separate protocol, just HTTP with an encryption layer that provides:</p>
+    <ul>
+      <li><strong>Confidentiality:</strong> data cannot be read in transit.</li>
+      <li><strong>Integrity:</strong> data cannot be changed in transit.</li>
+      <li><strong>Authentication:</strong> you are talking to the real server, proven by a certificate from a trusted Certificate Authority.</li>
+    </ul>
+    <p>Without HTTPS, anyone on shared Wi-Fi can read passwords and session tokens sent over plain HTTP. Free certificates from Let's Encrypt (launched 2015) and browser warnings (Chrome began marking HTTP as "Not Secure" in 2018) pushed HTTPS from roughly 30% of browsing in 2013 to about 95% by 2024, according to Google's Transparency Report.</p>
+
+    <h2>Key People and Organizations</h2>
+    <table>
+      <caption>Table 4. Who shaped HTTP</caption>
+      <thead><tr><th scope="col">Who</th><th scope="col">Contribution</th></tr></thead>
+      <tbody>
+        <tr><td>Tim Berners-Lee (CERN)</td><td>Invented the Web, HTTP, HTML and the URL; founded the W3C in 1994.</td></tr>
+        <tr><td>Roy Fielding</td><td>Co-authored HTTP/1.1 and defined REST in his 2000 dissertation.</td></tr>
+        <tr><td>IETF</td><td>Standards body that publishes the HTTP RFCs.</td></tr>
+        <tr><td>Google</td><td>Created SPDY (basis of HTTP/2) and QUIC (basis of HTTP/3).</td></tr>
+        <tr><td>Let's Encrypt / ISRG</td><td>Free, automated TLS certificates that drove HTTPS adoption.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Future Directions</h2>
+    <ul>
+      <li><strong>End-to-end HTTP/3:</strong> many sites use HTTP/3 only up to a CDN edge, then HTTP/2 to the origin.</li>
+      <li><strong>WebTransport:</strong> a browser API on QUIC for low-latency, multiplexed streams.</li>
+      <li><strong>Post-quantum cryptography:</strong> new TLS algorithms to resist quantum computers.</li>
+      <li><strong>Beyond browsers:</strong> HTTP also carries gRPC, IoT traffic and real-time data.</li>
+    </ul>
+
+    <div class="pager">
+      <a href="modern-http.html">&larr; HTTP/2 &amp; HTTP/3</a>
+      <a href="key-concepts.html">Key Concepts &rarr;</a>
+    </div>
+  </main>
+
+  <!-- Footer with the required class-project note -->
+  <footer id="site-footer">
+    <p>This is a class project for IT 3203 Web Development. Visit the <a href="https://ksuweb.github.io/IT3203/">IT 3203 class website</a>.</p>
+    <p>Created by Olu Lamodi | October 2026</p>
+  </footer>
+</body>
+</html>

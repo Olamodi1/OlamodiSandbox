@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-labelledby="t d">
+  <title id="t">HTTP request and response</title>
+  <desc id="d">A browser sends a GET request to a server, and the server replies with a 200 OK response containing HTML.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker></defs>
+  <rect width="720" height="260" fill="#eaf0f6"/>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="15" text-anchor="middle">
+    <rect x="40" y="70" width="170" height="120" rx="10" fill="#1f3a5f"/>
+    <text x="125" y="120" fill="#fff" font-weight="600">Browser</text><text x="125" y="145" fill="#c5d3e2" font-size="13">(client)</text>
+    <rect x="510" y="70" width="170" height="120" rx="10" fill="#1f3a5f"/>
+    <text x="595" y="120" fill="#fff" font-weight="600">Web server</text><text x="595" y="145" fill="#c5d3e2" font-size="13">(info.cern.ch, etc.)</text>
+    <path d="M212 105 H506" stroke="#2e7d9a" stroke-width="3" fill="none" marker-end="url(#a)"/>
+    <text x="360" y="95" fill="#1f3a5f" font-weight="600">GET /index.html</text>
+    <path d="M508 155 H214" stroke="#1f3a5f" stroke-width="3" fill="none" marker-end="url(#a)"/>
+    <text x="360" y="185" fill="#1f3a5f" font-weight="600">200 OK + HTML</text>
+  </g>
+</svg>

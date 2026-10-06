@@ -3,44 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Practice Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      background: #4CAF50;
-      color: white;
-      padding: 20px;
-    }
-    main {
-      padding: 20px;
-    }
-    footer {
-      background: #ddd;
-      padding: 10px;
-      margin-top: 20px;
-    }
-  </style>
+  <title>Home | The Evolution of HTTP</title>
+  <!-- One shared stylesheet for the whole site -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Practice Site</h1>
+  <!-- Header and main menu: identical on every page -->
+  <header id="site-header">
+    <p class="site-title">The Evolution of HTTP</p>
+    <nav class="main-nav" aria-label="Main menu">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="early-http.html">Early HTTP</a></li>
+        <li><a href="modern-http.html">HTTP/2 &amp; HTTP/3</a></li>
+        <li><a href="how-http-works.html">How HTTP Works</a></li>
+        <li><a href="key-concepts.html">Key Concepts</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <h2>Hello, World! 🌍</h2>
-    <p>This is my first practice webpage for learning web development.</p>
-    <p>I will use this site for future practices and experiments.</p>
+    <h1>The Evolution of HTTP</h1>
+    <p class="lead">From a one-line request in 1991 to the backbone of the modern internet.</p>
+
+    <figure>
+      <img src="images/http-exchange.svg" width="720" height="260" alt="Diagram: a browser sends GET /index.html to a web server, which replies 200 OK with HTML">
+      <figcaption>The basic HTTP exchange has stayed the same for over thirty years.</figcaption>
+    </figure>
+
+    <h2>Abstract</h2>
+    <p>HTTP (HyperText Transfer Protocol) defines how browsers and servers communicate. Every page load, video stream, and API call travels over it. This site follows the five major versions, HTTP/0.9 through HTTP/3, and explains the problem each one solved, who built it, and how widely it is used. It is written for readers with no networking background.</p>
+
+    <h2>Key Terms</h2>
+    <ul class="term-list">
+      <li>HTTP</li>
+      <li>Request and response</li>
+      <li>Status code</li>
+      <li>Persistent connection</li>
+      <li>Multiplexing</li>
+      <li>Head-of-line blocking</li>
+      <li>QUIC</li>
+      <li>TLS / HTTPS</li>
+    </ul>
+
+    <h2>Table of Contents</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Early HTTP</h3>
+        <p>HTTP/0.9, HTTP/1.0 and the long-lived HTTP/1.1 (1991 to 2015).</p>
+        <a class="card-link" href="early-http.html">Read this page</a>
+      </div>
+      <div class="card">
+        <h3>HTTP/2 &amp; HTTP/3</h3>
+        <p>Multiplexing, QUIC, and the modern protocol (2015 to today).</p>
+        <a class="card-link" href="modern-http.html">Read this page</a>
+      </div>
+      <div class="card">
+        <h3>How HTTP Works</h3>
+        <p>The request-response cycle step by step, plus HTTPS and security.</p>
+        <a class="card-link" href="how-http-works.html">Read this page</a>
+      </div>
+      <div class="card">
+        <h3>Key Concepts</h3>
+        <p>Six ideas that explain the protocol.</p>
+        <a class="card-link" href="key-concepts.html">Read this page</a>
+      </div>
+      <div class="card">
+        <h3>References</h3>
+        <p>Standards documents and learning resources.</p>
+        <a class="card-link" href="references.html">Read this page</a>
+      </div>
+      <div class="card">
+        <h3>About</h3>
+        <p>About the author and this project.</p>
+        <a class="card-link" href="about.html">Read this page</a>
+      </div>
+    </div>
   </main>
 
-  <footer>
-    <p>Created by Olu Lamodi | September 2026</p>
+  <!-- Footer with the required class-project note -->
+  <footer id="site-footer">
+    <p>This is a class project for IT 3203 Web Development. Visit the <a href="https://ksuweb.github.io/IT3203/">IT 3203 class website</a>.</p>
+    <p>Created by Olu Lamodi | October 2026</p>
   </footer>
 </body>
 </html>

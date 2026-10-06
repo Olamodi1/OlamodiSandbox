@@ -1,0 +1,210 @@
+/* ==========================================================
+   IT 3203 Milestone 1 - Progressive Web Apps site
+   Single stylesheet shared by every page.
+   ========================================================== */
+
+/* ---------- Design tokens (colors and fonts in one place) ---------- */
+:root {
+  --navy: #1f3a5f;       /* primary brand color */
+  --navy-dark: #162a45;
+  --accent: #2e7d9a;     /* links and highlights */
+  --bg: #f5f7fa;         /* page background */
+  --card: #ffffff;
+  --text: #25303b;
+  --muted: #5d6b79;
+  --line: #d5dce4;       /* borders */
+}
+
+/* ---------- SELECTOR TYPE 1: element selectors ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;   /* font setting: body */
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+h1, h2, h3 {
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;  /* font setting: headings */
+  color: var(--navy);
+  line-height: 1.25;
+}
+h1 { font-size: 2.1rem; margin: 0 0 0.5rem; }
+h2 { font-size: 1.5rem; margin: 2rem 0 0.75rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--line); }
+h3 { font-size: 1.15rem; margin: 1.5rem 0 0.5rem; }
+
+p { margin: 0 0 1rem; }
+
+/* Link colors plus the required hover effect */
+a { color: var(--accent); text-decoration: underline; }
+a:hover { color: var(--navy); background-color: #e3eef3; }
+
+ul, ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+li { margin-bottom: 0.35rem; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ---------- Header and main menu (flexbox layout) ---------- */
+/* ---------- SELECTOR TYPE 2: ID selector ---------- */
+#site-header {
+  background-color: var(--navy);
+  color: #fff;
+  padding: 1.25rem 1.5rem 0;
+}
+#site-header .site-title {
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 auto 0.75rem;
+  max-width: 62rem;
+}
+
+/* ---------- SELECTOR TYPE 3: class selector + descendant selectors ---------- */
+.main-nav ul {
+  display: flex;              /* FLEXBOX: menu items in one row */
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 62rem;
+}
+.main-nav a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: #dbe7f3;
+  text-decoration: none;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  border-bottom: 3px solid transparent;
+}
+/* hover effect on links in the menu */
+.main-nav a:hover {
+  background-color: var(--navy-dark);
+  color: #fff;
+  border-bottom-color: #8cc4d8;
+}
+/* attribute selector: the page the visitor is on is marked aria-current */
+.main-nav a[aria-current="page"] {
+  background-color: var(--bg);
+  color: var(--navy);
+  border-bottom-color: var(--bg);
+}
+
+/* ---------- Page layout ---------- */
+main {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.lead { font-size: 1.2rem; color: var(--muted); }
+
+/* Boxed notes and cards */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.note {
+  background-color: #eaf3f7;
+  border-left: 5px solid var(--accent);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+
+/* Key terms shown as small tags (flexbox) */
+.term-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+.term-list li {
+  background-color: #e3eaf2;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 0.2rem 0.85rem;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* CSS GRID: table-of-contents cards on the home page and concept cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.25rem;
+  margin: 1rem 0 2rem;
+}
+.card-grid .card { margin-bottom: 0; }
+.card-grid h3 { margin-top: 0; }
+.card-grid a.card-link { font-family: "Segoe UI", Helvetica, Arial, sans-serif; font-weight: 600; }
+.card-grid .card:hover { border-color: var(--accent); }
+
+/* Figures and images */
+figure { margin: 1.5rem 0; }
+figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; text-align: center; }
+figure img { border: 1px solid var(--line); border-radius: 6px; background: #fff; margin: 0 auto; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  background-color: var(--card);
+  font-size: 0.97rem;
+}
+caption { text-align: left; font-weight: bold; padding-bottom: 0.4rem; color: var(--navy); }
+th, td { border: 1px solid var(--line); padding: 0.6rem 0.8rem; text-align: left; vertical-align: top; }
+th { background-color: var(--navy); color: #fff; font-family: "Segoe UI", Helvetica, Arial, sans-serif; font-weight: 600; }
+tbody tr:nth-child(even) { background-color: #f0f4f8; }   /* pseudo-class selector */
+
+/* Code samples */
+code { font-family: Consolas, "Courier New", monospace; background-color: #e9eef3; padding: 0.1rem 0.35rem; border-radius: 3px; font-size: 0.92em; }
+pre { background-color: #1e2a38; color: #e8eef5; padding: 1rem; border-radius: 6px; overflow-x: auto; line-height: 1.45; }
+pre code { background: none; padding: 0; color: inherit; }
+
+/* Definition lists (key concepts) */
+dt { font-family: "Segoe UI", Helvetica, Arial, sans-serif; font-weight: 600; color: var(--navy); margin-top: 1rem; }
+dd { margin: 0.2rem 0 0.5rem 0; }
+
+/* Reference list */
+.ref-list li { margin-bottom: 0.8rem; }
+
+/* About page: two-column profile using grid */
+.profile {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.profile img { border-radius: 50%; border: 4px solid var(--line); }
+
+/* Page-to-page navigation at the bottom of topic pages */
+.pager { display: flex; justify-content: space-between; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
+
+/* ---------- Footer ---------- */
+#site-footer {
+  background-color: var(--navy-dark);
+  color: #c5d3e2;
+  text-align: center;
+  padding: 1.25rem 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+#site-footer p { margin: 0.2rem 0; }
+#site-footer a { color: #9fd0e2; }
+#site-footer a:hover { color: #fff; background: transparent; }
+
+/* Small screens: stack the profile (full responsive work comes in Milestone 3) */
+@media (max-width: 600px) {
+  .profile { grid-template-columns: 1fr; }
+  h1 { font-size: 1.7rem; }
+}

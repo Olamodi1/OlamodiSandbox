@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Concepts | The Evolution of HTTP</title>
+  <!-- One shared stylesheet for the whole site -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header and main menu: identical on every page -->
+  <header id="site-header">
+    <p class="site-title">The Evolution of HTTP</p>
+    <nav class="main-nav" aria-label="Main menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="early-http.html">Early HTTP</a></li>
+        <li><a href="modern-http.html">HTTP/2 &amp; HTTP/3</a></li>
+        <li><a href="how-http-works.html">How HTTP Works</a></li>
+        <li><a href="key-concepts.html" aria-current="page">Key Concepts</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Key Concepts</h1>
+    <p class="lead">Six ideas that explain how HTTP works and why it keeps changing.</p>
+
+    <h2>The Six Concepts</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>1. Client and Server</h3>
+        <p>The client (usually a browser) asks for resources and the server answers. Every HTTP exchange follows this pattern.</p>
+      </div>
+      <div class="card">
+        <h3>2. Request Methods</h3>
+        <p>Verbs such as GET, POST, PUT and DELETE say what the client wants to do with a resource.</p>
+      </div>
+      <div class="card">
+        <h3>3. Status Codes</h3>
+        <p>Three-digit numbers like 200 and 404 tell the client whether the request worked.</p>
+      </div>
+      <div class="card">
+        <h3>4. Statelessness</h3>
+        <p>Each request stands alone. Cookies, sessions and tokens add memory on top of HTTP.</p>
+      </div>
+      <div class="card">
+        <h3>5. Multiplexing and Head-of-Line Blocking</h3>
+        <p>Multiplexing sends many requests at once on one connection. Head-of-line blocking is when one slow item holds up everything behind it.</p>
+      </div>
+      <div class="card">
+        <h3>6. TLS and HTTPS</h3>
+        <p>TLS encrypts and authenticates traffic. HTTPS is HTTP running over TLS.</p>
+      </div>
+    </div>
+
+    <h2>Quick Glossary</h2>
+    <dl>
+      <dt>RFC</dt>
+      <dd>"Request for Comments": a numbered document published by the IETF. Each HTTP version is defined in one.</dd>
+      <dt>TCP</dt>
+      <dd>The reliable transport protocol under HTTP/1.x and HTTP/2.</dd>
+      <dt>QUIC</dt>
+      <dd>A UDP-based transport with built-in encryption, used by HTTP/3.</dd>
+      <dt>CDN</dt>
+      <dd>Content delivery network: servers around the world that deliver content close to users.</dd>
+    </dl>
+  </main>
+
+  <!-- Footer with the required class-project note -->
+  <footer id="site-footer">
+    <p>This is a class project for IT 3203 Web Development. Visit the <a href="https://ksuweb.github.io/IT3203/">IT 3203 class website</a>.</p>
+    <p>Created by Olu Lamodi | October 2026</p>
+  </footer>
+</body>
+</html>

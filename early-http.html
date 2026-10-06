@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Early HTTP | The Evolution of HTTP</title>
+  <!-- One shared stylesheet for the whole site -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header and main menu: identical on every page -->
+  <header id="site-header">
+    <p class="site-title">The Evolution of HTTP</p>
+    <nav class="main-nav" aria-label="Main menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="early-http.html" aria-current="page">Early HTTP</a></li>
+        <li><a href="modern-http.html">HTTP/2 &amp; HTTP/3</a></li>
+        <li><a href="how-http-works.html">How HTTP Works</a></li>
+        <li><a href="key-concepts.html">Key Concepts</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Early HTTP: Versions 0.9, 1.0 and 1.1</h1>
+    <p class="lead">The first three versions turned a simple prototype into the foundation of the web.</p>
+
+    <figure>
+      <img src="images/http-timeline.svg" width="720" height="200" alt="Timeline of HTTP versions: 0.9 in 1991, 1.0 in 1996, 1.1 in 1997, 2 in 2015, 3 in 2022">
+      <figcaption>Figure 1. HTTP version timeline.</figcaption>
+    </figure>
+
+    <h2>HTTP/0.9 (1991)</h2>
+    <p>Tim Berners-Lee created HTTP at CERN between 1989 and 1991 as part of the World Wide Web project. It was never formally standardized; it was a working prototype.</p>
+    <ul>
+      <li>Only one method: <code>GET</code>. A request was a single line, such as <code>GET /page.html</code>.</li>
+      <li>The server sent raw HTML and immediately closed the connection.</li>
+      <li>No headers, no status codes, and no error handling.</li>
+      <li>Only plain HTML could be sent, so images were impossible.</li>
+    </ul>
+
+    <h2>HTTP/1.0 (1996)</h2>
+    <p>The first formally documented version, published as RFC 1945.</p>
+    <ul>
+      <li>Added headers: metadata such as content type and length.</li>
+      <li>Added the <code>POST</code> and <code>HEAD</code> methods.</li>
+      <li>Added status codes such as 200 OK, 301 redirect, 404 Not Found, and 500 server error.</li>
+      <li>Allowed content beyond HTML, including images and files.</li>
+    </ul>
+    <div class="note"><strong>Major flaw:</strong> every request opened, used, and closed its own TCP connection. That was very slow for pages with many images and files.</div>
+
+    <h2>HTTP/1.1 (1997 to 2015)</h2>
+    <p>Published as RFC 2068 in 1997 and updated in 1999, HTTP/1.1 dominated the web for 18 years, longer than any other version.</p>
+    <table>
+      <caption>Table 1. Main features added by HTTP/1.1</caption>
+      <thead>
+        <tr><th scope="col">Feature</th><th scope="col">What it does</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Persistent connections</td><td>One TCP connection carries many requests, cutting the delay of reopening connections.</td></tr>
+        <tr><td>Pipelining</td><td>The client can send several requests without waiting. Responses must still arrive in order, so one slow response holds up the rest (head-of-line blocking).</td></tr>
+        <tr><td>Chunked transfer encoding</td><td>A server can start sending before it knows the total size, which suits dynamically generated pages.</td></tr>
+        <tr><td>Cache control</td><td><code>Cache-Control</code>, <code>ETag</code> and <code>Last-Modified</code> headers reduce repeated downloads.</td></tr>
+        <tr><td>Host header</td><td>Many websites can share one IP address (virtual hosting).</td></tr>
+        <tr><td>New methods</td><td><code>PUT</code>, <code>DELETE</code>, <code>OPTIONS</code> and <code>TRACE</code> opened the door to REST APIs.</td></tr>
+      </tbody>
+    </table>
+    <p>To work around head-of-line blocking, browsers opened 6 to 8 parallel TCP connections per domain. This worked, but it wasted resources.</p>
+
+    <div class="pager">
+      <a href="index.html">&larr; Home</a>
+      <a href="modern-http.html">HTTP/2 &amp; HTTP/3 &rarr;</a>
+    </div>
+  </main>
+
+  <!-- Footer with the required class-project note -->
+  <footer id="site-footer">
+    <p>This is a class project for IT 3203 Web Development. Visit the <a href="https://ksuweb.github.io/IT3203/">IT 3203 class website</a>.</p>
+    <p>Created by Olu Lamodi | October 2026</p>
+  </footer>
+</body>
+</html>
