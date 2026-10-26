@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz | The Evolution of HTTP</title>
+  <!-- One shared stylesheet for the whole site -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Quiz logic (timer, scoring, results, reset) -->
+  <script src="quiz.js" defer></script>
+</head>
+<body>
+  <!-- Header and main menu: identical on every page -->
+  <header id="site-header">
+    <p class="site-title">The Evolution of HTTP</p>
+    <nav class="main-nav" aria-label="Main menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="early-http.html">Early HTTP</a></li>
+        <li><a href="modern-http.html">HTTP/2 &amp; HTTP/3</a></li>
+        <li><a href="how-http-works.html">How HTTP Works</a></li>
+        <li><a href="key-concepts.html">Key Concepts</a></li>
+        <li><a href="quiz.html" aria-current="page">Quiz</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <main>
+    <h1>Self-Assessment Quiz</h1>
+    <p class="lead">Test what you learned about the evolution of HTTP.</p>
+
+    <!-- Results panel: filled in by quiz.js right after submission (shown at the top of the page) -->
+    <section id="results" class="results" aria-live="polite" tabindex="-1" hidden></section>
+
+    <!-- Intro / start screen -->
+    <section id="quiz-intro" class="card">
+      <h2>Before you begin</h2>
+      <ul>
+        <li>10 questions: 5 multiple choice, 3 fill-in-the-blank and 2 multi-select.</li>
+        <li>Each question is worth 10 points. Multi-select questions need every correct choice and no wrong ones.</li>
+        <li>You need 70 or more points to pass.</li>
+        <li>You have <strong>10 minutes</strong>. The timer starts when you press Start, and the quiz submits itself when time runs out.</li>
+        <li>Fill-in-the-blank answers are not case sensitive.</li>
+      </ul>
+      <button type="button" id="start-btn" class="btn btn-primary">Start Quiz</button>
+    </section>
+
+    <!-- Quiz area: hidden until Start is pressed -->
+    <div id="quiz-area" hidden>
+      <div id="timer-bar" class="timer-bar" role="timer" aria-label="Time remaining">
+        <span>Time remaining</span>
+        <strong id="timer-display">10:00</strong>
+        <span id="progress-display">0 of 10 answered</span>
+      </div>
+
+      <form id="quiz-form" novalidate>
+        <fieldset class="question" id="question-1">
+          <legend><span class="q-num">Question 1</span> <span class="q-type">Multiple choice (one answer)</span></legend>
+          <p class="q-text">Which HTTP version first added headers and status codes?</p>
+          <label class="option"><input type="radio" name="q1" value="a"> <span>HTTP/0.9</span></label>
+          <label class="option"><input type="radio" name="q1" value="b"> <span>HTTP/1.0</span></label>
+          <label class="option"><input type="radio" name="q1" value="c"> <span>HTTP/1.1</span></label>
+          <label class="option"><input type="radio" name="q1" value="d"> <span>HTTP/2</span></label>
+          <p class="q-feedback" hidden></p>
+        </fieldset>
+        <fieldset class="question" id="question-2">
+          <legend><span class="q-num">Question 2</span> <span class="q-type">Fill in the blank</span></legend>
+          <p class="q-text">HTTP stands for HyperText <input type="text" name="q2" class="blank" autocomplete="off" spellcheck="false" aria-label="Answer for question 2"> Protocol.</p>
+          <p class="q-feedback" hidden></p>
+        </fieldset>
+        <fieldset class="question" id="question-3">
+          <legend><span class="q-num">Question 3</span> <span class="q-type">Multiple choice (one answer)</span></legend>
+          <p class="q-text">What problem did persistent connections in HTTP/1.1 solve?</p>
+          <label class="option"><input type="radio" name="q3" value="a"> <span>Unencrypted traffic on public Wi-Fi</span></label>
+          <label class="option"><input type="radio" name="q3" value="b"> <span>Slow DNS lookups</span></label>
+          <label class="option"><input type="radio" name="q3" value="c"> <span>Opening a new TCP connection for every request</span></label>
+          <label class="option"><input type="radio" name="q3" value="d"> <span>Websites sharing one IP address</span></label>
+          <p class="q-feedback" hidden></p>
+        </fieldset>
+        <fieldset class="question" id="question-4">
+          <legend><span class="q-num">Question 4</span> <span class="q-type">Multi-select (choose all that apply)</span></legend>
+          <p class="q-text">Which of the following are features of HTTP/2?</p>
+          <label class="option"><input type="checkbox" name="q4" value="a"> <span>Binary framing</span></label>
+          <label class="option"><input type="checkbox" name="q4" value="b"> <span>Multiplexing over one connection</span></label>
+          <label class="option"><input type="checkbox" name="q4" value="c"> <span>HPACK header compression</span></label>
+          <label class="option"><input type="checkbox" name="q4" value="d"> <span>Runs on QUIC instead of TCP</span></label>
+          <p class="q-feedback" hidden></p>
+        </fieldset>
+        <fieldset class="question" id="question-5">
+          <legend><span class="q-num">Question 5</span> <span class="q-type">Fill in the blank</span></legend>
+          <p class="q-text">HTTP/3 runs on a UDP-based transport protocol called <input type="text" name="q5" class="blank" autocomplete="off" spellcheck="false" aria-label="Answer for question 5"> .</p>
+          <p class="q-feedback" hidden></p>
+        </fieldset>
+        <fieldset class="question" id="question-6">
+          <legend><span class="q-num">Question 6</span> <span class="q-type">Multiple choice (one answer)</span></legend>
+          <p class="q-text">Which status code means the requested page was not found?</p>
+          <label class="option"><input type="radio" name="q6" value="a"> <span>200</span></label>
+          <label class="option"><input type="radio" name="q6" value="b"> <span>301</span></label>
+          <label class="option"><input type="radio" name="q6" value="c"> <span>404</span></label>
+          <label class="option"><input type="radio" name="q6" value="d"> <span>500</span></label>
+          <p class="q-feedback" hidden></p>
+        </fieldset>
+        <fieldset class="question" id="question-7">
+          <legend><span class="q-num">Question 7</span> <span class="q-type">Multi-select (choose all that apply)</span></legend>
+          <p class="q-text">Which protections does HTTPS (HTTP over TLS) provide?</p>
+          <label class="option"><input type="checkbox" name="q7" value="a"> <span>Confidentiality (data unreadable in transit)</span></label>
+          <label class="option"><input type="checkbox" name="q7" value="b"> <span>Integrity (data cannot be changed in transit)</span></label>
+          <label class="option"><input type="checkbox" name="q7" value="c"> <span>Authentication of the server</span></label>
+          <label class="option"><input type="checkbox" name="q7" value="d"> <span>Guaranteed faster page loads</span></label>
+          <p class="q-feedback" hidden></p>
+        </fieldset>
+        <fieldset class="question" id="question-8">
+          <legend><span class="q-num">Question 8</span> <span class="q-type">Fill in the blank</span></legend>
+          <p class="q-text">HTTP is described as <input type="text" name="q8" class="blank" autocomplete="off" spellcheck="false" aria-label="Answer for question 8"> because each request is independent and the server does not remember earlier ones.</p>
+          <p class="q-feedback" hidden></p>
+        </fieldset>
+        <fieldset class="question" id="question-9">
+          <legend><span class="q-num">Question 9</span> <span class="q-type">Multiple choice (one answer)</span></legend>
+          <p class="q-text">Who invented HTTP at CERN?</p>
+          <label class="option"><input type="radio" name="q9" value="a"> <span>Roy Fielding</span></label>
+          <label class="option"><input type="radio" name="q9" value="b"> <span>Tim Berners-Lee</span></label>
+          <label class="option"><input type="radio" name="q9" value="c"> <span>Vint Cerf</span></label>
+          <label class="option"><input type="radio" name="q9" value="d"> <span>Mark Zuckerberg</span></label>
+          <p class="q-feedback" hidden></p>
+        </fieldset>
+        <fieldset class="question" id="question-10">
+          <legend><span class="q-num">Question 10</span> <span class="q-type">Multiple choice (one answer)</span></legend>
+          <p class="q-text">Which problem in HTTP/2 does HTTP/3 fix?</p>
+          <label class="option"><input type="radio" name="q10" value="a"> <span>Lack of header compression</span></label>
+          <label class="option"><input type="radio" name="q10" value="b"> <span>Plain-text request format</span></label>
+          <label class="option"><input type="radio" name="q10" value="c"> <span>TCP head-of-line blocking, where one lost packet pauses every stream</span></label>
+          <label class="option"><input type="radio" name="q10" value="d"> <span>Only one request per connection</span></label>
+          <p class="q-feedback" hidden></p>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Submit Quiz</button>
+          <button type="button" id="reset-btn" class="btn btn-secondary">Reset Answers</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer with the required class-project note -->
+  <footer id="site-footer">
+    <p>This is a class project for IT 3203 Web Development. Visit the <a href="https://ksuweb.github.io/IT3203/">IT 3203 class website</a>.</p>
+    <p>Created by Olu Lamodi | October 2026</p>
+  </footer>
+</body>
+</html>

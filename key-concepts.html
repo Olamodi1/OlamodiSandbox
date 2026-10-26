@@ -18,6 +18,7 @@
         <li><a href="modern-http.html">HTTP/2 &amp; HTTP/3</a></li>
         <li><a href="how-http-works.html">How HTTP Works</a></li>
         <li><a href="key-concepts.html" aria-current="page">Key Concepts</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
         <li><a href="references.html">References</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
@@ -26,9 +27,9 @@
 
   <main>
     <h1>Key Concepts</h1>
-    <p class="lead">Six ideas that explain how HTTP works and why it keeps changing.</p>
+    <p class="lead">Nine ideas that explain how HTTP works and why it keeps changing.</p>
 
-    <h2>The Six Concepts</h2>
+    <h2>The Nine Concepts</h2>
     <div class="card-grid">
       <div class="card">
         <h3>1. Client and Server</h3>
@@ -54,6 +55,18 @@
         <h3>6. TLS and HTTPS</h3>
         <p>TLS encrypts and authenticates traffic. HTTPS is HTTP running over TLS.</p>
       </div>
+      <div class="card">
+        <h3>7. Headers</h3>
+        <p>Name and value pairs sent with every request and response, carrying details such as content type, caching rules and cookies.</p>
+      </div>
+      <div class="card">
+        <h3>8. Caching</h3>
+        <p>Reusing files the browser already downloaded so later page loads need fewer network requests.</p>
+      </div>
+      <div class="card">
+        <h3>9. Persistent Connections</h3>
+        <p>Keeping one connection open for many requests instead of opening a new connection each time.</p>
+      </div>
     </div>
 
     <h2>Quick Glossary</h2>
@@ -64,6 +77,12 @@
       <dd>The reliable transport protocol under HTTP/1.x and HTTP/2.</dd>
       <dt>QUIC</dt>
       <dd>A UDP-based transport with built-in encryption, used by HTTP/3.</dd>
+      <dt>DNS</dt>
+      <dd>The Domain Name System, which translates a website name into an IP address.</dd>
+      <dt>HPACK</dt>
+      <dd>The header compression format used by HTTP/2.</dd>
+      <dt>TLS</dt>
+      <dd>Transport Layer Security, the encryption protocol behind HTTPS.</dd>
       <dt>CDN</dt>
       <dd>Content delivery network: servers around the world that deliver content close to users.</dd>
     </dl>

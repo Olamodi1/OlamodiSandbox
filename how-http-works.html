@@ -18,6 +18,7 @@
         <li><a href="modern-http.html">HTTP/2 &amp; HTTP/3</a></li>
         <li><a href="how-http-works.html" aria-current="page">How HTTP Works</a></li>
         <li><a href="key-concepts.html">Key Concepts</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
         <li><a href="references.html">References</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
@@ -62,6 +63,31 @@ Content-Length: 5823
       </tbody>
     </table>
 
+    <h2>HTTP Methods</h2>
+    <p>The method tells the server what the client wants to do with a resource. HTTP/1.1 defined the set still used by websites and REST APIs today.</p>
+    <table>
+      <caption>Table 4. Common HTTP methods</caption>
+      <thead><tr><th scope="col">Method</th><th scope="col">Purpose</th><th scope="col">Typical use</th></tr></thead>
+      <tbody>
+        <tr><td><code>GET</code></td><td>Retrieve a resource</td><td>Loading a web page or image</td></tr>
+        <tr><td><code>HEAD</code></td><td>Retrieve only the headers</td><td>Checking if a file changed</td></tr>
+        <tr><td><code>POST</code></td><td>Send data to the server</td><td>Submitting a login or sign-up form</td></tr>
+        <tr><td><code>PUT</code></td><td>Create or replace a resource</td><td>Uploading a file through an API</td></tr>
+        <tr><td><code>DELETE</code></td><td>Remove a resource</td><td>Deleting a record through an API</td></tr>
+        <tr><td><code>OPTIONS</code></td><td>Ask what the server allows</td><td>Cross-origin permission checks</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Headers and Caching</h2>
+    <p>Headers are name and value pairs that carry information about the request or response. A few of the most useful ones:</p>
+    <ul>
+      <li><code>Host</code>: which website the request is for, so one server can host many sites.</li>
+      <li><code>Content-Type</code> and <code>Content-Length</code>: what kind of data is being sent and how big it is.</li>
+      <li><code>Cache-Control</code>, <code>ETag</code> and <code>Last-Modified</code>: rules that let browsers reuse files they already downloaded.</li>
+      <li><code>Set-Cookie</code> and <code>Cookie</code>: how a server asks a browser to remember a small piece of state.</li>
+    </ul>
+    <p>Caching is one of the biggest performance wins in HTTP. If the browser already has a fresh copy of a file, it skips the network completely. If the copy might be stale, the browser sends the stored <code>ETag</code>, and the server answers <code>304 Not Modified</code> with no body when nothing has changed.</p>
+
     <h2>HTTPS and Security</h2>
     <p>HTTPS is HTTP sent over TLS (Transport Layer Security). It is not a separate protocol, just HTTP with an encryption layer that provides:</p>
     <ul>
@@ -73,7 +99,7 @@ Content-Length: 5823
 
     <h2>Key People and Organizations</h2>
     <table>
-      <caption>Table 4. Who shaped HTTP</caption>
+      <caption>Table 5. Who shaped HTTP</caption>
       <thead><tr><th scope="col">Who</th><th scope="col">Contribution</th></tr></thead>
       <tbody>
         <tr><td>Tim Berners-Lee (CERN)</td><td>Invented the Web, HTTP, HTML and the URL; founded the W3C in 1994.</td></tr>
